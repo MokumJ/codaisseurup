@@ -7,11 +7,11 @@
       <%= devise_error_messages! %>
 
       <div class="form-group">
-        <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+        <%= f.email_field :email, class: 'form-control', eventstarter: 'Email' %>
       </div>
 
       <div class="form-group">
-        <%= f.password_field :password, class: 'form-control', placeholder: 'Password',  autocomplete: "off" %>
+        <%= f.password_field :password, class: 'form-control', eventstarter: 'Password',  autocomplete: "off" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
