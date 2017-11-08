@@ -44,7 +44,7 @@ class EventsController < ApplicationController
      .permit(
        :name, :description, :location,  :price,  :capacity,
          :includes_food,  :includes_drinks, :starts_at,  :ends_at,
-           :active,  :created_at,  :updated_at,  :user_id, category_ids: []
+           :active,  :created_at,  :updated_at,  :user_id, :categories
      )
  end
 end
