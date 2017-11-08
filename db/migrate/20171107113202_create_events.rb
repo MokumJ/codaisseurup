@@ -11,7 +11,7 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.datetime :starts_at
       t.datetime :ends_at
       t.boolean :active
-
+      t.string :categories
       t.timestamps
     end
   end
