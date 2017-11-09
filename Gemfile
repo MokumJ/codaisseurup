@@ -5,8 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-source 'https://rubygems.org'
-
 ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -32,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'carrierwave', '0.11.2'
+gem 'cloudinary', '1.2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,8 +65,4 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails', '~> 4.3.1'
 
 gem 'devise', '~> 4.2'
-group :production do
-gem 'carrierwave', '0.11.2'
 gem 'rails_12factor', group: :production
-gem 'cloudinary', '1.2.3'
-end
