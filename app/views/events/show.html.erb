@@ -9,7 +9,10 @@
 
     <li><%= !@event.includes_food ? ("<s>food</s>").html_safe : "Food" %></li>
         <li><%= !@event.includes_drinks ? ("<del>drinks</del>").html_safe : "Drinks" %></li>
-
+        <h4>Photos</h4>
+        <% @event.photos.each do |photo| %>
+          <%= image_tag photo.image %>
+        <% end %>
   </div>
 
 </div>
