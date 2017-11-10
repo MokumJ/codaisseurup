@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
+  describe "validation" do
+it "is invalid without name"
+it "is invalid without location"
+it "is invalid with a capacity more than 50000 characters"
+it "is invalid with a description longer than 500 characters"
+end
 
   describe "association with user" do
     let(:user) { create :user }
