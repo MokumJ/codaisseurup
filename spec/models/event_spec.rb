@@ -15,14 +15,15 @@ end
 
 
 
-    describe ".order_by_price" do
-      let!(:event1) { create :event, price: 1}
-      let!(:event2) { create :event, price: 5}
-      let!(:event3) { create :event, price: 10}
+describe "association with registration" do
+  let(:guest_user) { create :user, email: "guest@user.com" }
+  let(:host_user) { create :user, email: "host@user.com" }
 
-      it "returns a sorted array of events by price" do
+  let!(:event) { create :event, user: host_user }
+  let!(:registration) { create :registration, event: event, user: guest_user }
 
-        expect(Event.order_by_price).to eq([event1, event2, event3])
+  it "has guests" do
+    expect(event.guest_user).to include(guest_user)
 
       end
     end
