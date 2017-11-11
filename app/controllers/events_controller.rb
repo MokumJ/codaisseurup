@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update]
+ before_action :set_event, only: [:show, :edit, :update]
  before_action :authenticate_user!, except: [:show]
 
  def index
@@ -38,17 +38,19 @@ class EventsController < ApplicationController
     end
   end
 
-  def update
-    if @event.update(event_params)
-      image_params.each do |image|
-        @event.photos.create(image: image)
-      end
 
-      redirect_to edit_event_path(@event), notice: "Event successfully updated"
-    else
-      render :edit
-    end
-  end
+ def update
+   if @event.update(event_params)
+     redirect_to @event, notice: "event updated"
+     image_params.each do |image|
+       @event.photos.create(image: image)
+     end
+     redirect_to edit_event_path(@event), notice: "event successfully updated"
+   else
+     render :edit
+   end
+ end
+
 
  private
  def image_params
