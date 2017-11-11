@@ -13,6 +13,9 @@ birthday = Category.create!(name: "Birthday")
 outdoor = Category.create!(name: "Outdoor")
 game = Category.create!(name: "Game")
 
+
+
+puts "#{Category.all.size} categories created"
 jesse = User.create!( {email: "jesse.vanderheijden@gmail.com", password: '1234567'})
 miriam = User.create!({email: "miriam@codaisseurbnb.com", password: "abcd1234"})
 wouter = User.create!({email: "wouter@codaisseurbnb.com", password: "abcd1234"})
@@ -31,6 +34,9 @@ event_3 = Event.create!({
   name: "Verjaardagsfeestje", description: "Verjaardag van oom piet", location: "Lutjebroek",  price: 0,  capacity: 20,
   includes_food: true ,  includes_drinks: true, starts_at: Time.at(1364046539),  ends_at: Time.at(1364046539) ,
   active: false,   user: wouter })
+
+  event_1.categories = [outdoor, game]
+  
 
 photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510230476/buitenspelen_fnae8l.jpg", event: event_1)
 photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/djhc9jhiq/image/upload/v1510230742/piet_is_jarig_qocz9w.png", event: event_3)

@@ -38,6 +38,7 @@ class EventsController < ApplicationController
     end
   end
 
+
  def update
    if @event.update(event_params)
      redirect_to @event, notice: "event updated"
@@ -49,6 +50,7 @@ class EventsController < ApplicationController
      render :edit
    end
  end
+
 
  private
  def image_params

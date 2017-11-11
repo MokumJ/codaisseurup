@@ -4,10 +4,14 @@
     <p class="alert alert-danger" role="alert"><%= msg %></p>
   <% end %>
 
-  <div class="form-group">
-    <label>Name</label>
-    <%= f.text_field :name, placeholder: "Event name", class: "form-control" %>
-  </div>
+
+
+  
+<div class="form-group">
+  <label>Name</label>
+    <%= f.text_area :name, rows: 1, placeholder: "Give your event a name!", class: "form-control" %>
+
+
 
   <div class="form-group">
     <label>Description</label>
@@ -18,6 +22,7 @@
     <label>Location</label>
     <%= f.text_field :location, placeholder: "Location", class: "form-control" %>
   </div>
+
 
   <div class="form-group">
     <label>Price</label>
@@ -41,6 +46,18 @@
     <label>Ends at</label>
     <%= f.datetime_select :ends_at %>
   </div>
+
+  <hr>
+
+    <label>Categories</label>
+
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+      <div class="form-group">
+        <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+      </div>
+    <% end %>
+
+
 
   <hr>
 
@@ -79,6 +96,18 @@
   </div>
 
   <hr>
+
+<label> Add a picture to your event </label>
+<div class="form-group">
+  <span class="btn btn-default">
+    Upload Photos
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
+  </span>
+</div>
+<div id="photos">
+  <%= render 'photos/list' %>
+</div>
+
 
   <label>Publish this event?</label>
 
